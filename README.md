@@ -1,6 +1,8 @@
 # My First Project
 
-This is my first project on GitHub.
+Hello! My name is Ian.
 
-I am learning programming and
-Computer Science.
+I am currently learning programming
+and Computer Science.
+
+This is my first GitHub project.
