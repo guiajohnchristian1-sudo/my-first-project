@@ -1,25 +1,76 @@
-<!DOCTYPE html>
-<html>
+<header class="hero">
 
-<head>
-    <title>My First Website</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-    <div class="container">
-
-        <h1>My First Website</h1>
-
-        <p>Hello, I'm Ian! 👋</p>
-
-        <button onclick="sayHello()">Click Me</button>
-
+    <div class="title-badge">
+        [YOUR TITLE]
     </div>
 
-    <script src="script.js"></script>
+    <h1>[YOUR GREETING]</h1>
 
-</body>
+    <p class="date">[DATE]</p>
 
-</html>
+    <div class="clock" id="clock">
+        00:00:00 PM
+    </div>
+
+    <p class="description">
+        [YOUR DESCRIPTION]
+    </p>
+
+    <div class="buttons">
+        <button onclick="switchTheme()">
+            [BUTTON 1]
+        </button>
+
+        <button onclick="viewTasks()">
+            [BUTTON 2]
+        </button>
+    </div>
+
+    <button class="section-button" onclick="sectionHub()">
+        [SECTION HUB]
+    </button>
+
+</header>
+<section class="card all-tasks">
+
+    <h2>[SECTION TITLE]</h2>
+
+    <div class="number">
+        [NUMBER]
+    </div>
+
+    <p>
+        [YOUR DESCRIPTION]
+    </p>
+
+</section>
+
+
+<section class="card urgent-tasks">
+
+    <h2>[SECTION TITLE]</h2>
+
+    <div class="number">
+        [NUMBER]
+    </div>
+
+    <p>
+        [YOUR DESCRIPTION]
+    </p>
+
+</section>
+
+
+<section class="card nearest-deadline">
+
+    <h2>[SECTION TITLE]</h2>
+
+    <div class="number">
+        [NUMBER]
+    </div>
+
+    <p>
+        [YOUR DESCRIPTION]
+    </p>
+
+</section>
