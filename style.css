@@ -1,40 +1,834 @@
+/* =========================================
+   COLOR VARIABLES
+========================================= */
+
+:root {
+
+    --background: #090d24;
+    --background-light: #111735;
+
+    --white: #ffffff;
+    --text-light: #d7d9e5;
+    --text-muted: #aeb2c4;
+
+    --blue: #27b9ff;
+    --blue-dark: #1261b5;
+
+    --purple: #7a4cff;
+    --pink: #ff4d85;
+
+    --cyan: #20d8ff;
+    --yellow: #ffc400;
+
+    --glass: rgba(39, 44, 78, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.22);
+}
+
+
+/* =========================================
+   BASIC RESET
+========================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
+html {
+    scroll-behavior: smooth;
+}
+
+
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
-    color: #222;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    color: var(--white);
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(57, 78, 180, 0.35),
+            transparent 40%
+        ),
+        linear-gradient(
+            160deg,
+            #080c20,
+            #111633 55%,
+            #090d23
+        );
+
     min-height: 100vh;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow-x: hidden;
 }
 
-.container {
-    background: white;
-    width: 90%;
-    max-width: 500px;
-    padding: 40px 30px;
-    border-radius: 20px;
+
+/* =========================================
+   STAR BACKGROUND
+========================================= */
+
+.stars {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(
+            1px 1px at 20px 30px,
+            rgba(255,255,255,0.7),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 80px 120px,
+            rgba(255,255,255,0.45),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 150px 70px,
+            rgba(255,255,255,0.5),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 220px 170px,
+            rgba(255,255,255,0.35),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 300px 50px,
+            rgba(255,255,255,0.55),
+            transparent
+        );
+
+    background-size: 330px 230px;
+
+    opacity: 0.8;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.dashboard {
+
+    width: min(92%, 760px);
+
+    margin: 38px auto 80px;
+
+}
+
+
+/* =========================================
+   WELCOME CARD
+========================================= */
+
+.welcome-card {
+
+    position: relative;
+
     text-align: center;
 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px 25px;
+
+    border-radius: 38px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(48, 54, 91, 0.82),
+            rgba(30, 34, 68, 0.82)
+        );
+
+    border: 1px solid rgba(255,255,255,0.22);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    overflow: hidden;
 }
 
-h1 {
-    font-size: 36px;
-    margin-bottom: 15px;
+
+/* Soft glow behind card */
+
+.welcome-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    background: rgba(73, 100, 255, 0.18);
+
+    filter: blur(80px);
+
+    border-radius: 50%;
+
+    top: -140px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    pointer-events: none;
 }
 
-p {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 25px;
+
+/* =========================================
+   GRADIENT BADGE
+========================================= */
+
+.semester-badge {
+
+    position: relative;
+
+    display: inline-block;
+
+    padding: 12px 25px;
+
+    border-radius: 30px;
+
+    font-size: clamp(14px, 3.5vw, 19px);
+
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #278dff,
+            #7a4cff,
+            #9a46ed
+        );
+
+    box-shadow:
+        0 8px 25px rgba(60, 86, 255, 0.4);
+}
+
+
+/* =========================================
+   MAIN TITLE
+========================================= */
+
+.welcome-card h1 {
+
+    position: relative;
+
+    margin-top: 30px;
+
+    font-size: clamp(30px, 7vw, 48px);
+
+    line-height: 1.12;
+
+    font-weight: 800;
+
+    color: #20bfff;
+
+    text-shadow:
+        0 0 18px rgba(32, 191, 255, 0.2);
+}
+
+
+/* =========================================
+   DATE
+========================================= */
+
+.date {
+
+    position: relative;
+
+    margin-top: 22px;
+
+    font-size: clamp(17px, 4vw, 25px);
+
+    color: #c6c7d2;
+
+    font-weight: 400;
+}
+
+
+/* =========================================
+   CLOCK
+========================================= */
+
+.clock {
+
+    position: relative;
+
+    margin-top: 15px;
+
+    font-size: clamp(38px, 10vw, 65px);
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 4px 25px rgba(255,255,255,0.12);
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.description {
+
+    position: relative;
+
+    margin-top: 20px;
+
+    color: #b9bbc9;
+
+    font-size: clamp(15px, 3.5vw, 20px);
+
+    line-height: 1.35;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.button-row {
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    margin-top: 32px;
+
+    flex-wrap: wrap;
+}
+
+
+.glass-button {
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    background:
+        rgba(115, 119, 145, 0.4);
+
+    color: white;
+
+    padding: 14px 28px;
+
+    border-radius: 35px;
+
+    font-family: inherit;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.12),
+        0 5px 20px rgba(0,0,0,0.18);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.glass-button:hover {
+
+    transform: translateY(-3px);
+
+    background:
+        rgba(140, 145, 170, 0.5);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.3);
+}
+
+
+.glass-button:active {
+
+    transform: scale(0.96);
+}
+
+
+/* Section hub */
+
+.hub-button {
+
+    position: relative;
+
+    margin-top: 20px;
+
+    padding-left: 35px;
+
+    padding-right: 35px;
+}
+
+
+/* =========================================
+   TASK CARDS
+========================================= */
+
+.task-card {
+
+    position: relative;
+
+    margin-top: 38px;
+
+    border-radius: 38px;
+
+    overflow: hidden;
+
+    background:
+        rgba(20, 31, 65, 0.85);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 2px solid;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.25);
+
+    min-height: 210px;
+}
+
+
+/* Left glowing line */
+
+.task-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: 0;
+
+    width: 9px;
+
+    border-radius: 20px;
+}
+
+
+/* Card content */
+
+.card-content {
+
+    padding: 38px 34px 38px 38px;
+}
+
+
+.card-title {
+
+    display: block;
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+}
+
+
+.task-number {
+
+    display: block;
+
+    margin-top: 18px;
+
+    font-size: 58px;
+
+    line-height: 1;
+
+    font-weight: 800;
+}
+
+
+.task-card p {
+
+    margin-top: 22px;
+
+    font-size: 19px;
+
+    line-height: 1.4;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   BLUE CARD
+========================================= */
+
+.all-tasks {
+
+    border-color: #148bd1;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(22, 50, 94, 0.92),
+            rgba(14, 28, 60, 0.92)
+        );
+}
+
+
+.all-tasks::before {
+
+    background: #22c5ff;
+
+    box-shadow:
+        0 0 25px #22c5ff;
+}
+
+
+.all-tasks .task-number {
+
+    color: #37c6ff;
+
+    text-shadow:
+        0 0 15px rgba(55,198,255,0.25);
+}
+
+
+/* =========================================
+   RED / PURPLE CARD
+========================================= */
+
+.urgent-tasks {
+
+    border-color: #d54865;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(65, 29, 62, 0.94),
+            rgba(43, 27, 56, 0.94)
+        );
+}
+
+
+.urgent-tasks::before {
+
+    background: #ff5d73;
+
+    box-shadow:
+        0 0 25px #ff5d73;
+}
+
+
+.urgent-tasks .task-number {
+
+    color: #ff879b;
+}
+
+
+/* =========================================
+   YELLOW CARD
+========================================= */
+
+.nearest-task {
+
+    border-color: #b48c14;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(62, 48, 24, 0.94),
+            rgba(42, 32, 27, 0.94)
+        );
+}
+
+
+.nearest-task::before {
+
+    background: #ffc400;
+
+    box-shadow:
+        0 0 25px #ffc400;
+}
+
+
+.nearest-task .task-number {
+
+    color: #ffd23c;
+}
+
+
+/* =========================================
+   SCHOOLWORK SECTION
+========================================= */
+
+.tasks-section {
+
+    margin-top: 45px;
+
+    padding: 30px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(24, 29, 61, 0.8);
+
+    border: 1px solid rgba(255,255,255,0.14);
+
+    backdrop-filter: blur(12px);
+}
+
+
+.tasks-section h2 {
+
+    margin-bottom: 20px;
+
+    font-size: 25px;
+}
+
+
+.task-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.1);
+}
+
+
+.task-item:last-child {
+
+    border-bottom: none;
+}
+
+
+.task-item strong {
+
+    font-size: 16px;
+}
+
+
+.task-item p {
+
+    margin-top: 5px;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+}
+
+
+.deadline {
+
+    padding: 8px 12px;
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,0.1);
+
+    color: #7ddcff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   LIGHT THEME
+========================================= */
+
+body.light-mode {
+
+    color: #18213c;
+
+    background:
+        linear-gradient(
+            160deg,
+            #e9f3ff,
+            #dce5ff,
+            #f2e9ff
+        );
+}
+
+
+body.light-mode .stars {
+
+    opacity: 0.15;
+}
+
+
+body.light-mode .welcome-card {
+
+    background:
+        rgba(255,255,255,0.72);
+
+    border-color:
+        rgba(20,30,60,0.12);
+}
+
+
+body.light-mode .date,
+body.light-mode .description {
+
+    color: #555b70;
+}
+
+
+body.light-mode .glass-button {
+
+    color: #1c2742;
+
+    background:
+        rgba(255,255,255,0.6);
+}
+
+
+body.light-mode .task-card {
+
+    color: white;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 600px) {
+
+    .dashboard {
+
+        width: 92%;
+
+        margin-top: 42px;
+    }
+
+
+    .welcome-card {
+
+        padding:
+            38px 18px;
+
+        border-radius: 34px;
+    }
+
+
+    .semester-badge {
+
+        padding:
+            11px 17px;
+
+        font-size: 14px;
+    }
+
+
+    .welcome-card h1 {
+
+        margin-top: 28px;
+    }
+
+
+    .clock {
+
+        letter-spacing: 1px;
+    }
+
+
+    .button-row {
+
+        gap: 12px;
+    }
+
+
+    .glass-button {
+
+        font-size: 16px;
+
+        padding:
+            13px 20px;
+    }
+
+
+    .task-card {
+
+        min-height: 190px;
+
+        border-radius: 34px;
+    }
+
+
+    .card-content {
+
+        padding:
+            30px 24px 30px 30px;
+    }
+
+
+    .card-title {
+
+        font-size: 17px;
+    }
+
+
+    .task-number {
+
+        font-size: 52px;
+    }
+
+
+    .task-card p {
+
+        font-size: 16px;
+    }
+
+
+    .tasks-section {
+
+        padding: 22px;
+
+        border-radius: 25px;
+    }
+
+
+    .task-item {
+
+        align-items: flex-start;
+    }
+    }    margin-bottom: 25px;
 }
 
 button {
