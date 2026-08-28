@@ -5,36 +5,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- EDIT WEBSITE TITLE HERE -->
     <title>[EDIT TITLE]</title>
 
-    <!-- Connect CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="container">
+    <!-- Background decorative lights -->
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
 
-        <div class="hero">
+    <main class="container">
 
+        <!-- =========================
+             HERO / WELCOME CARD
+        ========================== -->
+        <section class="hero-card">
+
+            <!-- EDIT TITLE -->
             <div class="title-badge">
-                [EDIT TITLE]
+                <span>[EDIT TITLE]</span>
             </div>
 
+            <!-- EDIT GREETING -->
             <h1>[EDIT GREETING]</h1>
 
+            <!-- EDIT DATE -->
             <p class="date">[EDIT DATE]</p>
 
+            <!-- LIVE CLOCK -->
             <div class="clock" id="clock">
                 00:00:00 PM
             </div>
 
-            <p class="description">
+            <!-- EDIT DESCRIPTION -->
+            <p class="hero-description">
                 [EDIT DESCRIPTION]
             </p>
 
-            <div class="buttons">
-                <button onclick="switchTheme()">
+            <!-- BUTTONS -->
+            <div class="button-row">
+
+                <button class="glass-button" id="themeButton">
+                    [EDIT BUTTON 1]
+                </button>
+
+                <button class="glass-button" id="tasksButton">
+                    [EDIT BUTTON 2]
+                </button>
+
+            </div>
+
+            <!-- SECTION HUB BUTTON -->
+            <button class="hub-button" id="hubButton">
+                ← [EDIT SECTION HUB]
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             TASK CARDS
+        ========================== -->
+        <section class="tasks-section" id="tasks">
+
+
+            <!-- ALL TASKS -->
+            <article class="task-card blue-card">
+
+                <div class="card-content">
+
+                    <h2>[EDIT SECTION TITLE]</h2>
+
+                    <div class="task-number">
+                        [NUMBER]
+                    </div>
+
+                    <p>
+                        [EDIT DESCRIPTION]
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- URGENT TASKS -->
+            <article class="task-card pink-card">
+
+                <div class="card-content">
+
+                    <h2>[EDIT SECTION TITLE]</h2>
+
+                    <div class="task-number">
+                        [NUMBER]
+                    </div>
+
+                    <p>
+                        [EDIT DESCRIPTION]
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- NEAREST DEADLINE -->
+            <article class="task-card yellow-card">
+
+                <div class="card-content">
+
+                    <h2>[EDIT SECTION TITLE]</h2>
+
+                    <div class="task-number">
+                        [NUMBER]
+                    </div>
+
+                    <p>
+                        [EDIT DESCRIPTION]
+                    </p>
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>                <button onclick="switchTheme()">
                     [EDIT BUTTON 1]
                 </button>
 
